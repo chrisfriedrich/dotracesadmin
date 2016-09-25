@@ -1,0 +1,57 @@
+﻿@model IEnumerable<DotRacesAdministration.Models.Survey>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdentityCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SettingsID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PointTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChoseToBetFlag)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdentityCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SettingsID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PointTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChoseToBetFlag)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SurveyID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SurveyID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SurveyID })
+        </td>
+    </tr>
+}
+
+</table>

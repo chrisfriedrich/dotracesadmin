@@ -1,0 +1,48 @@
+﻿@model DotRacesAdministration.Models.Question
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Question</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.QuestionText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuestionText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AskedFlag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AskedFlag)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentQuestionFlag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentQuestionFlag)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

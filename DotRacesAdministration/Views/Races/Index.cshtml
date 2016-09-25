@@ -1,0 +1,231 @@
+﻿@model IEnumerable<DotRacesAdministration.Models.Race>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Duration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Winner)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Difference1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Difference2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Difference3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Difference4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Difference5)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Difference6)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Difference7)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Difference8)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Difference9)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Difference10)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Difference11)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Difference12)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Difference13)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Difference14)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Difference15)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Difference16)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sound1ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sound2ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sound3ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sound4ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sound5ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sound6ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sound7ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sound8ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sound9ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sound10ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sound11ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sound12ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sound13ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sound14ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sound15ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sound16ID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Duration)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Winner)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Difference1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Difference2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Difference3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Difference4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Difference5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Difference6)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Difference7)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Difference8)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Difference9)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Difference10)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Difference11)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Difference12)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Difference13)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Difference14)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Difference15)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Difference16)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sound1ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sound2ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sound3ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sound4ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sound5ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sound6ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sound7ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sound8ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sound9ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sound10ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sound11ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sound12ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sound13ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sound14ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sound15ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sound16ID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RaceID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RaceID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RaceID })
+        </td>
+    </tr>
+}
+
+</table>

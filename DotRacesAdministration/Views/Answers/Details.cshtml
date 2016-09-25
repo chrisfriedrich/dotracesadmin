@@ -1,0 +1,50 @@
+﻿@model DotRacesAdministration.Models.Answer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Answer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SurveyID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SurveyID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuestionID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuestionID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnswerFlag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnswerFlag)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnswerValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnswerValue)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AnswerID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
