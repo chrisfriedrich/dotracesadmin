@@ -174,19 +174,67 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\QuestionsController.cs" />
     <Compile Include="Controllers\RacesController.cs" />
+    <Compile Include="Controllers\SeparatorsController.cs" />
     <Compile Include="Controllers\SettingsController.cs" />
+    <Compile Include="Controllers\OSUSurveysController.cs" />
     <Compile Include="Controllers\SurveysController.cs" />
     <Compile Include="DAL\DotRacesDataContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610011950289_fixquestions.cs" />
+    <Compile Include="Migrations\201610011950289_fixquestions.Designer.cs">
+      <DependentUpon>201610011950289_fixquestions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610012004093_question_setting_set.cs" />
+    <Compile Include="Migrations\201610012004093_question_setting_set.Designer.cs">
+      <DependentUpon>201610012004093_question_setting_set.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610012030159_more-question-parameters.cs" />
+    <Compile Include="Migrations\201610012030159_more-question-parameters.Designer.cs">
+      <DependentUpon>201610012030159_more-question-parameters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610020050510_QuestionUpdate.cs" />
+    <Compile Include="Migrations\201610020050510_QuestionUpdate.Designer.cs">
+      <DependentUpon>201610020050510_QuestionUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610020052118_nullables.cs" />
+    <Compile Include="Migrations\201610020052118_nullables.Designer.cs">
+      <DependentUpon>201610020052118_nullables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610090612114_separators.cs" />
+    <Compile Include="Migrations\201610090612114_separators.Designer.cs">
+      <DependentUpon>201610090612114_separators.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610090634187_namechange.cs" />
+    <Compile Include="Migrations\201610090634187_namechange.Designer.cs">
+      <DependentUpon>201610090634187_namechange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610090722053_otherdifference.cs" />
+    <Compile Include="Migrations\201610090722053_otherdifference.Designer.cs">
+      <DependentUpon>201610090722053_otherdifference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610100637470_surveywins.cs" />
+    <Compile Include="Migrations\201610100637470_surveywins.Designer.cs">
+      <DependentUpon>201610100637470_surveywins.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610190501031_osutables.cs" />
+    <Compile Include="Migrations\201610190501031_osutables.Designer.cs">
+      <DependentUpon>201610190501031_osutables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\OSUAnswer.cs" />
     <Compile Include="Models\Answer.cs" />
+    <Compile Include="Models\CSVViewModel.cs" />
+    <Compile Include="Models\RaceViewModel.cs" />
+    <Compile Include="Models\Separator.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Question.cs" />
     <Compile Include="Models\Race.cs" />
     <Compile Include="Models\SettingSet.cs" />
+    <Compile Include="Models\OSUSurvey.cs" />
     <Compile Include="Models\Survey.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -196,6 +244,17 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\field.png" />
+    <Content Include="Content\Images\field2.png" />
+    <Content Include="Content\Images\oregonfootball.png" />
+    <Content Include="Content\Images\oregonstatefootball.png" />
+    <Content Include="Content\Images\osu_logo_new.png" />
+    <Content Include="Content\Images\uo_logo_new.png" />
+    <Content Include="Content\Sounds\cheer1.mp3" />
+    <Content Include="Content\Sounds\cheer2.mp3" />
+    <Content Include="Content\Sounds\cheer3.mp3" />
+    <Content Include="Content\Sounds\crowd.mp3" />
+    <Content Include="Content\Sounds\pistol.mp3" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -249,6 +308,8 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="Properties\PublishProfiles\dotracesadmin - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\dotracesadmin - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -280,8 +341,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -308,11 +367,6 @@
     <Content Include="Views\Answers\Details.cshtml" />
     <Content Include="Views\Answers\Edit.cshtml" />
     <Content Include="Views\Answers\Index.cshtml" />
-    <Content Include="Views\Questions\Create.cshtml" />
-    <Content Include="Views\Questions\Delete.cshtml" />
-    <Content Include="Views\Questions\Details.cshtml" />
-    <Content Include="Views\Questions\Edit.cshtml" />
-    <Content Include="Views\Questions\Index.cshtml" />
     <Content Include="Views\Surveys\Create.cshtml" />
     <Content Include="Views\Surveys\Delete.cshtml" />
     <Content Include="Views\Surveys\Details.cshtml" />
@@ -328,6 +382,25 @@
     <Content Include="Views\Settings\Details.cshtml" />
     <Content Include="Views\Settings\Edit.cshtml" />
     <Content Include="Views\Settings\Index.cshtml" />
+    <Content Include="Views\Questions\Create.cshtml" />
+    <Content Include="Views\Questions\Delete.cshtml" />
+    <Content Include="Views\Questions\Details.cshtml" />
+    <Content Include="Views\Questions\Edit.cshtml" />
+    <Content Include="Views\Questions\Index.cshtml" />
+    <Content Include="Views\Surveys\DeleteAll.cshtml" />
+    <Content Include="Views\Separators\Create.cshtml" />
+    <Content Include="Views\Separators\Delete.cshtml" />
+    <Content Include="Views\Separators\Details.cshtml" />
+    <Content Include="Views\Separators\Edit.cshtml" />
+    <Content Include="Views\Separators\Index.cshtml" />
+    <Content Include="Views\Races\PreviewRace.cshtml" />
+    <Content Include="Views\Shared\_LayoutWide.cshtml" />
+    <Content Include="Views\OSUSurveys\Index.cshtml" />
+    <Content Include="Views\OSUSurveys\Create.cshtml" />
+    <Content Include="Views\OSUSurveys\Delete.cshtml" />
+    <Content Include="Views\OSUSurveys\DeleteAll.cshtml" />
+    <Content Include="Views\OSUSurveys\Details.cshtml" />
+    <Content Include="Views\OSUSurveys\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -337,6 +410,38 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-3.1.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.0.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201610011950289_fixquestions.resx">
+      <DependentUpon>201610011950289_fixquestions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610012004093_question_setting_set.resx">
+      <DependentUpon>201610012004093_question_setting_set.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610012030159_more-question-parameters.resx">
+      <DependentUpon>201610012030159_more-question-parameters.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610020050510_QuestionUpdate.resx">
+      <DependentUpon>201610020050510_QuestionUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610020052118_nullables.resx">
+      <DependentUpon>201610020052118_nullables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610090612114_separators.resx">
+      <DependentUpon>201610090612114_separators.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610090634187_namechange.resx">
+      <DependentUpon>201610090634187_namechange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610090722053_otherdifference.resx">
+      <DependentUpon>201610090722053_otherdifference.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610100637470_surveywins.resx">
+      <DependentUpon>201610100637470_surveywins.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610190501031_osutables.resx">
+      <DependentUpon>201610190501031_osutables.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

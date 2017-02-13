@@ -1,0 +1,325 @@
+﻿@model DotRacesAdministration.Models.Race
+
+@{
+    ViewBag.Title = "Edit Race";
+}
+
+@using (Html.BeginForm("Edit", "Races", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.RaceID)
+
+    @Html.LabelFor(model => model.Duration, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.Duration, new { htmlAttributes = new { @class = "form-control padless" } })
+        @Html.ValidationMessageFor(model => model.Duration, "", new { @class = "text-danger" })
+    </div>
+
+            @Html.LabelFor(model => model.SettingSetID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.SettingSetID)
+                    @Html.ValidationMessageFor(model => model.SettingSetID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            @Html.LabelFor(model => model.RaceNum, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.RaceNum)
+                    @Html.ValidationMessageFor(model => model.RaceNum, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            @Html.LabelFor(model => model.Winner, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.Winner)
+                    @Html.ValidationMessageFor(model => model.Winner, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <table style="width: 100%;">
+                <tr>
+                    <th style="width: 5%;">
+                        TEAM
+                    </th>
+                    <th>
+                        @Html.LabelFor(model => model.Difference1, htmlAttributes: new { @class = "control-label" })
+                    </th>
+                    <th>
+                        @Html.LabelFor(model => model.Difference2, htmlAttributes: new { @class = "control-label" })
+                    </th>
+                    <th>
+                        @Html.LabelFor(model => model.Difference3, htmlAttributes: new { @class = "control-label" })
+                    </th>
+                    <th>
+                        @Html.LabelFor(model => model.Difference4, htmlAttributes: new { @class = "control-label" })
+                    </th>
+                    <th>
+                        @Html.LabelFor(model => model.Difference5, htmlAttributes: new { @class = "control-label" })
+                    </th>
+                    <th>
+                        @Html.LabelFor(model => model.Difference6, htmlAttributes: new { @class = "control-label" })
+                    </th>
+                    <th>
+                        @Html.LabelFor(model => model.Difference7, htmlAttributes: new { @class = "control-label" })
+                    </th>
+                    <th>
+                        @Html.LabelFor(model => model.Difference8, htmlAttributes: new { @class = "control-label" })
+                    </th>
+                    <th>
+                        @Html.LabelFor(model => model.Difference9, htmlAttributes: new { @class = "control-label" })
+                    </th>
+                    <th>
+                        @Html.LabelFor(model => model.Difference10, htmlAttributes: new { @class = "control-label" })
+                    </th>
+                    <th>
+                        @Html.LabelFor(model => model.Difference11, htmlAttributes: new { @class = "control-label" })
+                    </th>
+                    <th>
+                        @Html.LabelFor(model => model.Difference12, htmlAttributes: new { @class = "control-label" })
+                    </th>
+                    <th>
+                        @Html.LabelFor(model => model.Difference13, htmlAttributes: new { @class = "control-label" })
+                    </th>
+                    <th>
+                        @Html.LabelFor(model => model.Difference14, htmlAttributes: new { @class = "control-label" })
+                    </th>
+                    <th>
+                        @Html.LabelFor(model => model.Difference15, htmlAttributes: new { @class = "control-label" })
+                    </th>
+                    <th>
+                        @Html.LabelFor(model => model.Difference16, htmlAttributes: new { @class = "control-label" })
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <span style="color: darkgreen; font-weight: bold;">UO</span>
+                    </th>
+                    <td>
+                        @Html.EditorFor(x => x.Difference1, new { htmlAttributes = new { @class = "form-control padless" } })
+                    </td>
+                    <td>
+                        @Html.EditorFor(x => x.Difference2, new { htmlAttributes = new { @class = "form-control padless" } })
+                    </td>
+                    <td>
+                        @Html.EditorFor(x => x.Difference3, new { htmlAttributes = new { @class = "form-control padless" } })
+                    </td>
+                    <td>
+                        @Html.EditorFor(x => x.Difference4, new { htmlAttributes = new { @class = "form-control padless" } })
+                    </td>
+                    <td>
+                        @Html.EditorFor(x => x.Difference5, new { htmlAttributes = new { @class = "form-control padless" } })
+                    </td>
+                    <td>
+                        @Html.EditorFor(x => x.Difference6, new { htmlAttributes = new { @class = "form-control padless" } })
+                    </td>
+                    <td>
+                        @Html.EditorFor(x => x.Difference7, new { htmlAttributes = new { @class = "form-control padless" } })
+                    </td>
+                    <td>
+                        @Html.EditorFor(x => x.Difference8, new { htmlAttributes = new { @class = "form-control padless" } })
+                    </td>
+                    <td>
+                        @Html.EditorFor(x => x.Difference9, new { htmlAttributes = new { @class = "form-control padless" } })
+                    </td>
+                    <td>
+                        @Html.EditorFor(x => x.Difference10, new { htmlAttributes = new { @class = "form-control padless" } })
+                    </td>
+                    <td>
+                        @Html.EditorFor(x => x.Difference11, new { htmlAttributes = new { @class = "form-control padless" } })
+                    </td>
+                    <td>
+                        @Html.EditorFor(x => x.Difference12, new { htmlAttributes = new { @class = "form-control padless" } })
+                    </td>
+                    <td>
+                        @Html.EditorFor(x => x.Difference13, new { htmlAttributes = new { @class = "form-control padless" } })
+                    </td>
+                    <td>
+                        @Html.EditorFor(x => x.Difference14, new { htmlAttributes = new { @class = "form-control padless" } })
+                    </td>
+                    <td>
+                        @Html.EditorFor(x => x.Difference15, new { htmlAttributes = new { @class = "form-control padless" } })
+                    </td>
+                    <td>
+                        @Html.EditorFor(x => x.Difference16, new { htmlAttributes = new { @class = "form-control padless" } })
+                    </td>
+                </tr>
+                @*<tr>
+                    <th>
+                        <span style="color: darkorange; font-weight: bold;">OSU</span>
+                    </th>
+                    <td>
+                        @Html.EditorFor(x => x.OtherDifference1, new { htmlAttributes = new { @class = "form-control padless" } })
+                    </td>
+                    <td>
+                        @Html.EditorFor(x => x.OtherDifference2, new { htmlAttributes = new { @class = "form-control padless" } })
+                    </td>
+                    <td>
+                        @Html.EditorFor(x => x.OtherDifference3, new { htmlAttributes = new { @class = "form-control padless" } })
+                    </td>
+                    <td>
+                        @Html.EditorFor(x => x.OtherDifference4, new { htmlAttributes = new { @class = "form-control padless" } })
+                    </td>
+                    <td>
+                        @Html.EditorFor(x => x.OtherDifference5, new { htmlAttributes = new { @class = "form-control padless" } })
+                    </td>
+                    <td>
+                        @Html.EditorFor(x => x.OtherDifference6, new { htmlAttributes = new { @class = "form-control padless" } })
+                    </td>
+                    <td>
+                        @Html.EditorFor(x => x.OtherDifference7, new { htmlAttributes = new { @class = "form-control padless" } })
+                    </td>
+                    <td>
+                        @Html.EditorFor(x => x.OtherDifference8, new { htmlAttributes = new { @class = "form-control padless" } })
+                    </td>
+                    <td>
+                        @Html.EditorFor(x => x.OtherDifference9, new { htmlAttributes = new { @class = "form-control padless" } })
+                    </td>
+                    <td>
+                        @Html.EditorFor(x => x.OtherDifference10, new { htmlAttributes = new { @class = "form-control padless" } })
+                    </td>
+                    <td>
+                        @Html.EditorFor(x => x.OtherDifference11, new { htmlAttributes = new { @class = "form-control padless" } })
+                    </td>
+                    <td>
+                        @Html.EditorFor(x => x.OtherDifference12, new { htmlAttributes = new { @class = "form-control padless" } })
+                    </td>
+                    <td>
+                        @Html.EditorFor(x => x.OtherDifference13, new { htmlAttributes = new { @class = "form-control padless" } })
+                    </td>
+                    <td>
+                        @Html.EditorFor(x => x.OtherDifference14, new { htmlAttributes = new { @class = "form-control padless" } })
+                    </td>
+                    <td>
+                        @Html.EditorFor(x => x.OtherDifference15, new { htmlAttributes = new { @class = "form-control padless" } })
+                    </td>
+                    <td>
+                        @Html.EditorFor(x => x.OtherDifference16, new { htmlAttributes = new { @class = "form-control padless" } })
+                    </td>
+                </tr>*@
+                @*<tr>
+                        <th>
+                            <span style="color: darkgreen; font-weight: bold;">UO</span>
+                        </th>
+                        <td>
+                            @Html.DropDownList("Difference1", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                        </td>
+                        <td>
+                            @Html.DropDownList("Difference2", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                        </td>
+                        <td>
+                            @Html.DropDownList("Difference3", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                        </td>
+                        <td>
+                            @Html.DropDownList("Difference4", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                        </td>
+                        <td>
+                            @Html.DropDownList("Difference5", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                        </td>
+                        <td>
+                            @Html.DropDownList("Difference6", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                        </td>
+                        <td>
+                            @Html.DropDownList("Difference7", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                        </td>
+                        <td>
+                            @Html.DropDownList("Difference8", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                        </td>
+                        <td>
+                            @Html.DropDownList("Difference9", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                        </td>
+                        <td>
+                            @Html.DropDownList("Difference10", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                        </td>
+                        <td>
+                            @Html.DropDownList("Difference11", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                        </td>
+                        <td>
+                            @Html.DropDownList("Difference12", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                        </td>
+                        <td>
+                            @Html.DropDownList("Difference13", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                        </td>
+                        <td>
+                            @Html.DropDownList("Difference14", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                        </td>
+                        <td>
+                            @Html.DropDownList("Difference15", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                        </td>
+                        <td>
+                            @Html.DropDownList("Difference16", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <span style="color: darkorange; font-weight: bold;">OSU</span>
+                        </th>
+                        <td>
+                            @Html.DropDownList("OtherDifference1", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                        </td>
+                        <td>
+                            @Html.DropDownList("OtherDifference2", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                        </td>
+                        <td>
+                            @Html.DropDownList("OtherDifference3", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                        </td>
+                        <td>
+                            @Html.DropDownList("OtherDifference4", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                        </td>
+                        <td>
+                            @Html.DropDownList("OtherDifference5", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                        </td>
+                        <td>
+                            @Html.DropDownList("OtherDifference6", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                        </td>
+                        <td>
+                            @Html.DropDownList("OtherDifference7", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                        </td>
+                        <td>
+                            @Html.DropDownList("OtherDifference8", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                        </td>
+                        <td>
+                            @Html.DropDownList("OtherDifference9", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                        </td>
+                        <td>
+                            @Html.DropDownList("OtherDifference10", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                        </td>
+                        <td>
+                            @Html.DropDownList("OtherDifference11", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                        </td>
+                        <td>
+                            @Html.DropDownList("OtherDifference12", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                        </td>
+                        <td>
+                            @Html.DropDownList("OtherDifference13", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                        </td>
+                        <td>
+                            @Html.DropDownList("OtherDifference14", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                        </td>
+                        <td>
+                            @Html.DropDownList("OtherDifference15", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                        </td>
+                        <td>
+                            @Html.DropDownList("OtherDifference16", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                        </td>
+                    </tr>*@
+                <tr>
+                    <td colspan="17">
+                        <br /><br />
+                        <p class="text-center">
+                            <a href="~/Settings/Index" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Return to Settings</a>&nbsp;&nbsp;
+                            <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-floppy-save"></span>&nbsp;&nbsp;Save Changes</button>&nbsp;&nbsp;
+                            <a href="~/Races/PreviewRace?id=@Model.RaceID" class="btn btn-default"><span class="glyphicon glyphicon-dashboard"></span>&nbsp;&nbsp;Preview Race</a>
+                        </p>
+                    </td>
+                </tr>
+            </table>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

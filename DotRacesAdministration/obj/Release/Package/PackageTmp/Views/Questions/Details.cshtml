@@ -1,0 +1,106 @@
+﻿@model DotRacesAdministration.Models.Question
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Question</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SettingSetID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SettingSetID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuestionText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuestionText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HasFollowUp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HasFollowUp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FollowUpText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FollowUpText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FeelingNoun)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FeelingNoun)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LowScaleDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LowScaleDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HighScaleDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HighScaleDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AskedFlag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AskedFlag)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentQuestionFlag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentQuestionFlag)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuestionRoundNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuestionRoundNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnjoymentGroupQuestion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnjoymentGroupQuestion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.QuestionID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

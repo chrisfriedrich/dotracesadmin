@@ -22,3 +22,100 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.table-striped > tbody > tr:nth-child(2n+1) > td{
+   background-color: #e8e8e8;
+}
+
+.table-striped th {
+   background-color: #cecece;
+}
+
+#AfterUOWinsLabel {
+    display: none;
+}
+
+#AfterOSUWinsLabel {
+    display: none;
+}
+
+.fullwidth {
+    width: 100%;
+}
+
+#AfterPointsLabel {
+    display: none;
+}
+
+#uowinning {
+    display: none;
+}
+
+#ouwinning {
+    display: none;
+}
+
+#ready {
+    display: none;
+}
+
+#set {
+    display: none;
+}
+
+#go {
+    display: none;
+}
+
+.uoWon {
+    display: none;
+}
+
+.ouWon {
+    display: none;
+}
+
+#uoWon {
+    display: none;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.orange {
+    background-color: orange;
+}
+
+#audioplayer {
+    display: none;
+}
+
+audio {
+    display: none;
+}
+
+.padless {
+    padding-left: 3px;
+}
+
+.small {
+    width: 80px;
+}
+
+.smallfont {
+    font-size: smaller;
+}
+
+.large {
+    min-width: 150px;
+    width: 250px;
+}
+
+#Winner {
+    width: 80px;
+}
+
+#Winner option {
+    width: 80px;
+}

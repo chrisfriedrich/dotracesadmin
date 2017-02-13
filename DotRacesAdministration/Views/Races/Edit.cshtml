@@ -1,307 +1,402 @@
 ﻿@model DotRacesAdministration.Models.Race
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Edit Race";
 }
-
-<h2>Edit</h2>
-
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Race</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.RaceID)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Duration, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Duration, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.RaceID)
+
+    <table>
+        <tr>
+            <th colspan="2">
+
+            </th>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(model => model.Duration, htmlAttributes: new { @class = "control-label col-md-2" })  
+            </th>
+            <td>
+                @Html.EditorFor(model => model.Duration, new { htmlAttributes = new { @class = "form-control padless" } })
                 @Html.ValidationMessageFor(model => model.Duration, "", new { @class = "text-danger" })
-            </div>
-        </div>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(model => model.SettingSetID, htmlAttributes: new { @class = "control-label col-md-2" })
+            </th>
+            <td>
+                @Html.EditorFor(model => model.SettingSetID, new { htmlAttributes = new { @class = "form-control padless" } })
+                @Html.ValidationMessageFor(model => model.SettingSetID, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(model => model.RaceNum, htmlAttributes: new { @class = "control-label col-md-2" })
+            </th>
+            <td>
+                @Html.EditorFor(model => model.RaceNum, new { htmlAttributes = new { @class = "form-control padless" } })
+                @Html.ValidationMessageFor(model => model.RaceNum, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(model => model.Winner, htmlAttributes: new { @class = "control-label col-md-2" })
+            </th>
+            <td>
+                <select id="Winner" class="form-control padless">
+                    <option value="True">Oregon</option>
+                    <option value="False">Oregon State</option>
+                </select>
+                @Html.DropDownList("Winner", new SelectListItem[]{
+                     new SelectListItem {Value="True", Text="Oregon"},
+                     new SelectListItem {Value="False", Text="Oregon State"}
+           }, new { @class = "form-control large" })
+            </td>
+        </tr>
+    </table>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Winner, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Winner)
-                    @Html.ValidationMessageFor(model => model.Winner, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
+            <table style="width: 100%;">
+                <tr>
+                    <th style="width: 5%;">
+                        TEAM
+                    </th>
+                    <th>
+                        @Html.LabelFor(model => model.Difference1, htmlAttributes: new { @class = "control-label" })
+                    </th>
+                    <th>
+                        @Html.LabelFor(model => model.Difference2, htmlAttributes: new { @class = "control-label" })
+                    </th>
+                    <th>
+                        @Html.LabelFor(model => model.Difference3, htmlAttributes: new { @class = "control-label" })
+                    </th>
+                    <th>
+                        @Html.LabelFor(model => model.Difference4, htmlAttributes: new { @class = "control-label" })
+                    </th>
+                    <th>
+                        @Html.LabelFor(model => model.Difference5, htmlAttributes: new { @class = "control-label" })
+                    </th>
+                    <th>
+                        @Html.LabelFor(model => model.Difference6, htmlAttributes: new { @class = "control-label" })
+                    </th>
+                    <th>
+                        @Html.LabelFor(model => model.Difference7, htmlAttributes: new { @class = "control-label" })
+                    </th>
+                    <th>
+                        @Html.LabelFor(model => model.Difference8, htmlAttributes: new { @class = "control-label" })
+                    </th>
+                    <th>
+                        @Html.LabelFor(model => model.Difference9, htmlAttributes: new { @class = "control-label" })
+                    </th>
+                    <th>
+                        @Html.LabelFor(model => model.Difference10, htmlAttributes: new { @class = "control-label" })
+                    </th>
+                    <th>
+                        @Html.LabelFor(model => model.Difference11, htmlAttributes: new { @class = "control-label" })
+                    </th>
+                    <th>
+                        @Html.LabelFor(model => model.Difference12, htmlAttributes: new { @class = "control-label" })
+                    </th>
+                    <th>
+                        @Html.LabelFor(model => model.Difference13, htmlAttributes: new { @class = "control-label" })
+                    </th>
+                    <th>
+                        @Html.LabelFor(model => model.Difference14, htmlAttributes: new { @class = "control-label" })
+                    </th>
+                    <th>
+                        @Html.LabelFor(model => model.Difference15, htmlAttributes: new { @class = "control-label" })
+                    </th>
+                    <th>
+                        @Html.LabelFor(model => model.Difference16, htmlAttributes: new { @class = "control-label" })
+                    </th>
+                </tr>
+                @*<tr>
+                        <th>
+                            <span style="color: darkgreen; font-weight: bold;">UO</span>
+                        </th>
+                        <td>
+                            @Html.EditorFor(x => x.Difference1, new { htmlAttributes = new { @class = "form-control padless" } })
+                        </td>
+                        <td>
+                            @Html.EditorFor(x => x.Difference2, new { htmlAttributes = new { @class = "form-control padless" } })
+                        </td>
+                        <td>
+                            @Html.EditorFor(x => x.Difference3, new { htmlAttributes = new { @class = "form-control padless" } })
+                        </td>
+                        <td>
+                            @Html.EditorFor(x => x.Difference4, new { htmlAttributes = new { @class = "form-control padless" } })
+                        </td>
+                        <td>
+                            @Html.EditorFor(x => x.Difference5, new { htmlAttributes = new { @class = "form-control padless" } })
+                        </td>
+                        <td>
+                            @Html.EditorFor(x => x.Difference6, new { htmlAttributes = new { @class = "form-control padless" } })
+                        </td>
+                        <td>
+                            @Html.EditorFor(x => x.Difference7, new { htmlAttributes = new { @class = "form-control padless" } })
+                        </td>
+                        <td>
+                            @Html.EditorFor(x => x.Difference8, new { htmlAttributes = new { @class = "form-control padless" } })
+                        </td>
+                        <td>
+                            @Html.EditorFor(x => x.Difference9, new { htmlAttributes = new { @class = "form-control padless" } })
+                        </td>
+                        <td>
+                            @Html.EditorFor(x => x.Difference10, new { htmlAttributes = new { @class = "form-control padless" } })
+                        </td>
+                        <td>
+                            @Html.EditorFor(x => x.Difference11, new { htmlAttributes = new { @class = "form-control padless" } })
+                        </td>
+                        <td>
+                            @Html.EditorFor(x => x.Difference12, new { htmlAttributes = new { @class = "form-control padless" } })
+                        </td>
+                        <td>
+                            @Html.EditorFor(x => x.Difference13, new { htmlAttributes = new { @class = "form-control padless" } })
+                        </td>
+                        <td>
+                            @Html.EditorFor(x => x.Difference14, new { htmlAttributes = new { @class = "form-control padless" } })
+                        </td>
+                        <td>
+                            @Html.EditorFor(x => x.Difference15, new { htmlAttributes = new { @class = "form-control padless" } })
+                        </td>
+                        <td>
+                            @Html.EditorFor(x => x.Difference16, new { htmlAttributes = new { @class = "form-control padless" } })
+                        </td>
+                    </tr>*@
+                @*<tr>
+                        <th>
+                            <span style="color: darkorange; font-weight: bold;">OSU</span>
+                        </th>
+                        <td>
+                            @Html.EditorFor(x => x.OtherDifference1, new { htmlAttributes = new { @class = "form-control padless" } })
+                        </td>
+                        <td>
+                            @Html.EditorFor(x => x.OtherDifference2, new { htmlAttributes = new { @class = "form-control padless" } })
+                        </td>
+                        <td>
+                            @Html.EditorFor(x => x.OtherDifference3, new { htmlAttributes = new { @class = "form-control padless" } })
+                        </td>
+                        <td>
+                            @Html.EditorFor(x => x.OtherDifference4, new { htmlAttributes = new { @class = "form-control padless" } })
+                        </td>
+                        <td>
+                            @Html.EditorFor(x => x.OtherDifference5, new { htmlAttributes = new { @class = "form-control padless" } })
+                        </td>
+                        <td>
+                            @Html.EditorFor(x => x.OtherDifference6, new { htmlAttributes = new { @class = "form-control padless" } })
+                        </td>
+                        <td>
+                            @Html.EditorFor(x => x.OtherDifference7, new { htmlAttributes = new { @class = "form-control padless" } })
+                        </td>
+                        <td>
+                            @Html.EditorFor(x => x.OtherDifference8, new { htmlAttributes = new { @class = "form-control padless" } })
+                        </td>
+                        <td>
+                            @Html.EditorFor(x => x.OtherDifference9, new { htmlAttributes = new { @class = "form-control padless" } })
+                        </td>
+                        <td>
+                            @Html.EditorFor(x => x.OtherDifference10, new { htmlAttributes = new { @class = "form-control padless" } })
+                        </td>
+                        <td>
+                            @Html.EditorFor(x => x.OtherDifference11, new { htmlAttributes = new { @class = "form-control padless" } })
+                        </td>
+                        <td>
+                            @Html.EditorFor(x => x.OtherDifference12, new { htmlAttributes = new { @class = "form-control padless" } })
+                        </td>
+                        <td>
+                            @Html.EditorFor(x => x.OtherDifference13, new { htmlAttributes = new { @class = "form-control padless" } })
+                        </td>
+                        <td>
+                            @Html.EditorFor(x => x.OtherDifference14, new { htmlAttributes = new { @class = "form-control padless" } })
+                        </td>
+                        <td>
+                            @Html.EditorFor(x => x.OtherDifference15, new { htmlAttributes = new { @class = "form-control padless" } })
+                        </td>
+                        <td>
+                            @Html.EditorFor(x => x.OtherDifference16, new { htmlAttributes = new { @class = "form-control padless" } })
+                        </td>
+                    </tr>*@
+                <tr>
+                    <th>
+                        <span style="color: darkgreen; font-weight: bold;">UO</span>
+                    </th>
+                    <td>
+                        @Html.DropDownList("Difference1", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("Difference2", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("Difference3", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("Difference4", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("Difference5", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("Difference6", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("Difference7", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("Difference8", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("Difference9", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("Difference10", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("Difference11", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("Difference12", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("Difference13", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("Difference14", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("Difference15", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("Difference16", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <span style="color: darkorange; font-weight: bold;">OSU</span>
+                    </th>
+                    <td>
+                        @Html.DropDownList("OtherDifference1", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("OtherDifference2", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("OtherDifference3", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("OtherDifference4", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("OtherDifference5", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("OtherDifference6", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("OtherDifference7", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("OtherDifference8", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("OtherDifference9", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("OtherDifference10", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("OtherDifference11", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("OtherDifference12", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("OtherDifference13", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("OtherDifference14", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("OtherDifference15", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("OtherDifference16", ViewData["intervals"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="17">
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Difference1, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Difference1, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Difference1, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Difference2, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Difference2, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Difference2, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Difference3, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Difference3, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Difference3, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Difference4, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Difference4, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Difference4, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Difference5, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Difference5, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Difference5, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Difference6, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Difference6, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Difference6, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Difference7, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Difference7, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Difference7, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Difference8, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Difference8, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Difference8, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Difference9, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Difference9, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Difference9, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Difference10, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Difference10, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Difference10, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Difference11, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Difference11, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Difference11, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Difference12, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Difference12, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Difference12, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Difference13, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Difference13, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Difference13, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Difference14, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Difference14, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Difference14, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Difference15, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Difference15, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Difference15, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Difference16, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Difference16, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Difference16, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Sound1ID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Sound1ID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Sound1ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Sound2ID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Sound2ID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Sound2ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Sound3ID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Sound3ID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Sound3ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Sound4ID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Sound4ID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Sound4ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Sound5ID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Sound5ID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Sound5ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Sound6ID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Sound6ID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Sound6ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Sound7ID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Sound7ID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Sound7ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Sound8ID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Sound8ID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Sound8ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Sound9ID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Sound9ID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Sound9ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Sound10ID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Sound10ID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Sound10ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Sound11ID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Sound11ID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Sound11ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Sound12ID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Sound12ID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Sound12ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Sound13ID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Sound13ID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Sound13ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Sound14ID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Sound14ID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Sound14ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Sound15ID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Sound15ID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Sound15ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Sound16ID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Sound16ID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Sound16ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <span style="font-weight: bold;">Sound</span>
+                    </th>
+                    <td>
+                        @Html.DropDownList("SoundID1", ViewData["sounds"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("SoundID2", ViewData["sounds"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("SoundID3", ViewData["sounds"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("SoundID4", ViewData["sounds"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("SoundID5", ViewData["sounds"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("SoundID6", ViewData["sounds"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("SoundID7", ViewData["sounds"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("SoundID8", ViewData["sounds"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("SoundID9", ViewData["sounds"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("SoundID10", ViewData["sounds"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("SoundID11", ViewData["sounds"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("SoundID12", ViewData["sounds"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("SoundID13", ViewData["sounds"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("SoundID14", ViewData["sounds"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("SoundID15", ViewData["sounds"] as List<SelectListItem>, "", new { @class = "form-control padless" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("SoundID16", ViewData["sounds"] as List<SelectListItem>, new { @class = "form-control padless smallfont" })
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="17">
+                        <br /><br />
+                        <p class="text-center">
+                            <a href="~/Settings/Index" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Return to Settings</a>&nbsp;&nbsp;
+                            <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-floppy-save"></span>&nbsp;&nbsp;Save Changes</button>&nbsp;&nbsp;
+                            <a href="~/Races/PreviewRace?id=@Model.RaceID" class="btn btn-default"><span class="glyphicon glyphicon-dashboard"></span>&nbsp;&nbsp;Preview Race</a>
+                        </p>
+                    </td>
+                </tr>
+            </table>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

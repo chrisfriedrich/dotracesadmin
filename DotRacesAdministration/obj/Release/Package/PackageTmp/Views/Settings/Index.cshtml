@@ -1,0 +1,203 @@
+﻿@model IEnumerable<DotRacesAdministration.Models.SettingSet>
+
+@{
+    ViewBag.Title = "Setting Set List";
+}
+
+<p class="text-right">
+    <a href="~/Settings/Create" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Create New</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.DefaultSetFlag)
+        </th>*@
+        @*<th>
+            @Html.DisplayNameFor(model => model.PotentialHighScore)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PotentialLowScore)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PointsPerRound)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberOfRaces)
+        </th>*@
+        @*<th>
+            @Html.DisplayNameFor(model => model.NumberOfRacesText)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberOfRacesAdjective)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.LastRaceMultiplier)
+        </th>
+        <th>
+            Races
+        </th>
+        <th>
+            Round 1 Questions
+        </th>
+        <th>
+            Round 2 Questions
+        </th>
+        <th>
+            Enjoyment Questions
+        </th>
+        <th>
+            Thoughts Questions
+        </th>
+        <th>
+            Final Questions
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        @*<td>
+            @if(item.DefaultSetFlag == true)
+            {
+                @:Yes
+            }
+            else
+            {
+                @:No
+            }
+            @Html.DisplayFor(modelItem => item.DefaultSetFlag)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.LastRaceMultiplier)
+        </td>
+        <td>
+            <table class="table table-striped" style="font-size: .9em;">
+
+                @if (((List<DotRacesAdministration.Models.Race>)ViewData["Races"]).Where(x => x.SettingSetID == item.SettingSetID).Count() < item.NumberOfRaces)
+                {
+                    <tr>
+                        <th><a href="~/Races/Create?id=@item.SettingSetID&ret=settings" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add Race</a></th>
+                    </tr>
+                    }
+                @foreach (DotRacesAdministration.Models.Race race in ((List<DotRacesAdministration.Models.Race>)ViewData["Races"]).Where(x => x.SettingSetID == item.SettingSetID))
+                {
+                    if (race.Winner)
+                    {
+                        <tr>
+
+                            <td>@race.RaceNum <a href="~/Races/Edit?id=@race.RaceID&ret=settings" class="btn btn-default btn-success btn-xs"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit</a></td>
+                        </tr>
+                    }
+                    else
+                    {
+                        <tr>
+
+                            <td>@race.RaceNum <a href="~/Races/Edit?id=@race.RaceID&ret=settings" class="btn btn-default btn-warning btn-xs"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit</a></td>
+                        </tr>
+                    }
+
+                }
+            </table>
+        </td>
+        <td>
+            <table class="table table-striped" style="font-size: .9em;">
+                <tr>
+                    <td><a href="~/Questions/Create?id=@item.SettingSetID&round=1&ret=settings" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add Question</a></td>
+                </tr>
+                @foreach (DotRacesAdministration.Models.Question question in ((List<DotRacesAdministration.Models.Question>)ViewData["Questions"]).Where(x => x.SettingSetID == item.SettingSetID && x.QuestionRoundNum == 1))
+                {
+                    <tr>
+                        <td title="@question.QuestionText">@question.QuestionID <a href="~/Questions/Edit?id=@question.QuestionID&ret=settings" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit</a></td>
+                    </tr>
+                }
+            </table>
+
+        </td>
+        <td>
+            <table class="table table-striped" style="font-size: .9em;">
+                <tr>
+                    <td><a href="~/Questions/Create?id=@item.SettingSetID&round=2&ret=settings" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add Question</a></td>
+                </tr>
+                    @foreach (DotRacesAdministration.Models.Question question in ((List<DotRacesAdministration.Models.Question>)ViewData["Questions"]).Where(x => x.SettingSetID == item.SettingSetID && x.QuestionRoundNum == 2))
+                {
+                        <tr>
+                            <td title="@question.QuestionText">@question.QuestionID <a href="~/Questions/Edit?id=@question.QuestionID&ret=settings" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit</a></td>
+                        </tr>
+                    }
+            </table>
+        </td>
+        <td>
+            <table class="table table-striped" style="font-size: .9em;">
+                <tr>
+                    <td><a href="~/Questions/Create?id=@item.SettingSetID&round=3&ret=settings" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add Question</a></td>
+                </tr>
+                    @foreach (DotRacesAdministration.Models.Question question in ((List<DotRacesAdministration.Models.Question>)ViewData["Questions"]).Where(x => x.SettingSetID == item.SettingSetID && x.QuestionRoundNum == 3))
+                {
+                        <tr>
+                            <td title="@question.QuestionText">@question.QuestionID <a href="~/Questions/Edit?id=@question.QuestionID&ret=settings" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit</a></td>
+                        </tr>
+                    }
+            </table>
+        </td>
+        <td>
+            <table class="table table-striped" style="font-size: .9em;">
+                <tr>
+                <td><a href="~/Questions/Create?id=@item.SettingSetID&round=4&ret=settings" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add Question</a></td>
+                </tr>
+                    @foreach (DotRacesAdministration.Models.Question question in ((List<DotRacesAdministration.Models.Question>)ViewData["Questions"]).Where(x => x.SettingSetID == item.SettingSetID && x.QuestionRoundNum == 4))
+                {
+                        <tr>
+                            <td title="@question.QuestionText">@question.QuestionID <a href="~/Questions/Edit?id=@question.QuestionID&ret=settings" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit</a></td>
+                        </tr>
+                    }
+                  
+            </table>
+        </td>
+        <td>
+            <table class="table table-striped" style="font-size: .9em;">
+                <tr>
+                    <td><a href="~/Questions/Create?id=@item.SettingSetID&round=5&ret=settings" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add Question</a></td>
+                </tr>
+                    @foreach (DotRacesAdministration.Models.Question question in ((List<DotRacesAdministration.Models.Question>)ViewData["Questions"]).Where(x => x.SettingSetID == item.SettingSetID && x.QuestionRoundNum == 5))
+                {
+                        <tr>
+                            <td title="@question.QuestionText">@question.QuestionID <a href="~/Questions/Edit?id=@question.QuestionID&ret=settings" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit</a></td>
+                        </tr>
+                    }
+            </table>
+        </td>
+        @*<td>
+            <ul>
+                @if (((List<DotRacesAdministration.Models.Race>)ViewData["Races"]).Where(x => x.SettingSetID == item.SettingSetID).Count() < item.NumberOfRaces)
+                {
+                    <li><a href="~/Races/Create?id=@item.SettingSetID&ret=settings" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add Race</a></li>
+                }
+                @foreach (DotRacesAdministration.Models.Race race in ((List<DotRacesAdministration.Models.Race>)ViewData["Races"]).Where(x => x.SettingSetID == item.SettingSetID))
+                {
+                    <li>@race.RaceNum <a href="~/Races/Edit?id=@race.RaceID&ret=settings" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit</a></li>
+                }
+            </ul>
+        </td>*@
+        <td>
+            <p class="text-center">
+                <a href="~/Settings/Edit?id=@item.SettingSetID" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Edit</a><br /><br />
+                @*<a href="~/Settings/Details?id=@item.SettingSetID" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;Details</a><br />*@
+                <a href="~/Settings/Delete?id=@item.SettingSetID" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Delete</a><br />
+            </p>
+        </td>
+    </tr>
+}
+
+</table>

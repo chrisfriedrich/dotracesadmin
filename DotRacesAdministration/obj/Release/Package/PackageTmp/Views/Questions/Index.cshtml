@@ -1,0 +1,99 @@
+﻿@model IEnumerable<DotRacesAdministration.Models.Question>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SettingSetID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuestionText)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HasFollowUp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FollowUpText)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FeelingNoun)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LowScaleDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HighScaleDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AskedFlag)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentQuestionFlag)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuestionRoundNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FinalGroupQuestion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GroupQuestionNumber)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SettingSetID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuestionText)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HasFollowUp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FollowUpText)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FeelingNoun)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LowScaleDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HighScaleDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AskedFlag)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CurrentQuestionFlag)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuestionRoundNum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FinalGroupQuestion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GroupQuestionNumber)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.QuestionID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.QuestionID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.QuestionID })
+        </td>
+    </tr>
+}
+
+</table>

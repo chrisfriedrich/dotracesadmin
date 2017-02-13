@@ -4,26 +4,75 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
-
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
+    @Html.HiddenFor(x => x.QuestionRoundNum)
+    @Html.HiddenFor(x => x.SettingSetID)
     <div class="form-horizontal">
-        <h4>Question</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.SettingSetID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SettingSetID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SettingSetID, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
         <div class="form-group">
             @Html.LabelFor(model => model.QuestionText, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.QuestionText, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.QuestionText, 10, 120, htmlAttributes: new { @class = "form-control" } )
                 @Html.ValidationMessageFor(model => model.QuestionText, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.HasFollowUp, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.HasFollowUp)
+                    @Html.ValidationMessageFor(model => model.HasFollowUp, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FollowUpText, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.FollowUpText, 10, 120, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.FollowUpText, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FeelingNoun, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FeelingNoun, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FeelingNoun, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LowScaleDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LowScaleDescription, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LowScaleDescription, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HighScaleDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HighScaleDescription, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HighScaleDescription, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
             @Html.LabelFor(model => model.AskedFlag, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
@@ -31,14 +80,42 @@
                     @Html.ValidationMessageFor(model => model.AskedFlag, "", new { @class = "text-danger" })
                 </div>
             </div>
-        </div>
+        </div>*@
 
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.CurrentQuestionFlag, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.CurrentQuestionFlag)
                     @Html.ValidationMessageFor(model => model.CurrentQuestionFlag, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>*@
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.QuestionRoundNum, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.QuestionRoundNum, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.QuestionRoundNum, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FinalGroupQuestion, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.FinalGroupQuestion)
+                    @Html.ValidationMessageFor(model => model.FinalGroupQuestion, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GroupQuestionNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.GroupQuestionNumber)
+                    @Html.ValidationMessageFor(model => model.GroupQuestionNumber, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>

@@ -1,13 +1,12 @@
 ﻿@model IEnumerable<DotRacesAdministration.Models.Survey>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "OU Survey List";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
+<p class="text-right">
+    <a href="~/Surveys/DownloadCSV" class="btn btn-default"><span class="glyphicon glyphicon-download-alt"></span>&nbsp;&nbsp;Download CSV</a>&nbsp;&nbsp;
+    <a href="~/Surveys/DeleteAll" class="btn btn-default btn-warning"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Delete All</a>
 </p>
 <table class="table">
     <tr>
@@ -26,13 +25,15 @@
         <th>
             @Html.DisplayNameFor(model => model.ChoseToBetFlag)
         </th>
+        <th>Questions and Answers</th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.CreatedDate)
+            @item.CreatedDate.ToLocalTime()
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.IdentityCode)
@@ -44,12 +45,75 @@
             @Html.DisplayFor(modelItem => item.PointTotal)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ChoseToBetFlag)
+            @if(item.ChoseToBetFlag == true)
+            {
+                @:Yes
+            }
+            else
+            {
+                @:No
+            }
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.SurveyID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.SurveyID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.SurveyID })
+            <table class="table table-striped" style="font-size: .9em;">
+                @{ 
+                    DotRacesAdministration.Models.SettingSet settings = ((List<DotRacesAdministration.Models.SettingSet>)ViewData["Settings"]).FirstOrDefault(x => x.SettingSetID == item.SettingsID);
+                    List<DotRacesAdministration.Models.Question> questions = ((List<DotRacesAdministration.Models.Question>)ViewData["Questions"]).Where(x => x.SettingSetID == item.SettingsID).OrderBy(x => x.QuestionRoundNum).ToList();
+                    List<DotRacesAdministration.Models.Answer> answers = ((List<DotRacesAdministration.Models.Answer>)ViewData["Answers"]).Where(x => x.SurveyID == item.SurveyID).ToList();
+
+                    for (int i = 1; i < 6; i++)
+                    {
+                    <tr>
+                        <th colspan="3">ROUND @i</th>
+                    </tr>
+
+                        List<DotRacesAdministration.Models.Question> roundQuestions = questions.Where(x => x.QuestionRoundNum == i).OrderBy(x => x.QuestionID).ToList();
+
+                        foreach (DotRacesAdministration.Models.Question question in roundQuestions)
+                        {
+                            DotRacesAdministration.Models.Answer answer = answers.FirstOrDefault(x => x.QuestionID == question.QuestionID);
+
+                                <tr>
+                                    <td>@Html.Raw(question.QuestionText)</td>
+                                    <td style="width: 50px;">
+                                        @if (answer != null)
+                                        {
+                                            if (answer.AnswerFlag != null)
+                                            {
+                                                if (answer.AnswerFlag == true)
+                                                {
+                                                    @:Yes
+                                                }
+                                                else if (answer.AnswerFlag == false)
+                                                {
+                                                    @:No
+                                                }
+                                            }
+                                            else
+                                            {
+                                            }
+                                        }
+                                        else
+                                        {
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (answer != null)
+                                        {
+                                            if (answer.AnswerValue != null)
+                                            {
+                                                @answer.AnswerValue
+                                            }
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    }
+            </table>
+        </td>
+        <td>
+            <a href="~/Surveys/Delete?id=@item.SurveyID" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Delete</a>
         </td>
     </tr>
 }

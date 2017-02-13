@@ -11,6 +11,7 @@ using DotRacesAdministration.Models;
 
 namespace DotRacesAdministration.Controllers
 {
+    [Authorize]
     public class AnswersController : Controller
     {
         private DotRacesDataContext db = new DotRacesDataContext();

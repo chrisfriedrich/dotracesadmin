@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -11,22 +12,18 @@ namespace DotRacesAdministration.Models
     public class Survey
     {
         public int SurveyID { get; set; }
+        [Display(Name="Created")]
         public DateTime CreatedDate { get; set; }
-        public int IdentityCode { get; set; }
+        [Display(Name ="Identity Code")]
+        public int? IdentityCode { get; set; }
+        [Display(Name ="Setting Set")]
         public int SettingsID { get; set; }
-
+        [Display(Name ="Point Total")]
         public int? PointTotal { get; set; }
+        [Display(Name ="Chose to Bet")]
         public bool? ChoseToBetFlag { get; set; }
-        List<Answer> FirstAnswers { get; set; }
-        List<Answer> SecondAnswers { get; set; }
-        List<Answer> EndAnswers { get; set; }
 
-        public Survey()
-        {
-            FirstAnswers = new List<Answer>();
-            SecondAnswers = new List<Answer>();
-            EndAnswers = new List<Answer>();
-        }
-
+        public int? OSUWins { get; set; }
+        public int? UOWins { get; set; }
     }
 }

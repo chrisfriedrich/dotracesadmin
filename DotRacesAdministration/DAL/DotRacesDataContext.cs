@@ -15,9 +15,12 @@ namespace DotRacesAdministration.DAL
 
         }
 
+        public DbSet<Separator> Separators { get; set; }
         public DbSet<Answer> Answers { get; set; }
+        public DbSet<OSUAnswer> OSUAnswers { get; set; }
         public DbSet<SettingSet> SettingSets { get; set; }
         public DbSet<Survey> Surveys { get; set; }
+        public DbSet<OSUSurvey> OSUSurveys { get; set; }
         public DbSet<Question> Questions { get; set; }
         public DbSet<Race> Races { get; set; }
     }

@@ -1,0 +1,112 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.table-striped > tbody > tr:nth-child(2n+1) > td{
+   background-color: #e8e8e8;
+}
+
+.table-striped th {
+   background-color: #cecece;
+}
+
+#AfterUOWinsLabel {
+    display: none;
+}
+
+#AfterOSUWinsLabel {
+    display: none;
+}
+
+.fullwidth {
+    width: 100%;
+}
+
+#AfterPointsLabel {
+    display: none;
+}
+
+#uowinning {
+    display: none;
+}
+
+#ouwinning {
+    display: none;
+}
+
+#ready {
+    display: none;
+}
+
+#set {
+    display: none;
+}
+
+#go {
+    display: none;
+}
+
+.uoWon {
+    display: none;
+}
+
+.ouWon {
+    display: none;
+}
+
+#uoWon {
+    display: none;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.orange {
+    background-color: orange;
+}
+
+#audioplayer {
+    display: none;
+}
+
+audio {
+    display: none;
+}
+
+.padless {
+    padding-left: 3px;
+}
+
+.small {
+    width: 80px;
+}
+
+#Winner {
+    width: 80px;
+}
+
+#Winner option {
+    width: 80px;
+}

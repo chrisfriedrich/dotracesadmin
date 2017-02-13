@@ -1,0 +1,17 @@
+﻿@model DotRacesAdministration.Models.OSUSurvey
+
+@{
+    ViewBag.Title = "Delete All Surveys";
+}
+
+<h3 class="text-center text-danger">Are you sure you want to delete all survey records?</h3>
+<p class="text-center text-danger">This action cannot be undone.</p>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        <br />
+<p class="text-center">
+    <a href="~/OSUSurveys/Index" class="btn btn-default"><span class="glyphicon glyphicon-ban-circle"></span>&nbsp;&nbsp;Cancel</a>&nbsp;&nbsp;
+    <button type="submit" class="btn btn-default btn-danger"><span class="glyphicon glyphicon-exclamation-sign"></span>&nbsp;&nbsp;Delete All Surveys</button>
+</p>
+    }

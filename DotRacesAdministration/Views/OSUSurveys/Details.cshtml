@@ -1,0 +1,58 @@
+﻿@model DotRacesAdministration.Models.OSUSurvey
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Survey</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdentityCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdentityCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SettingsID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SettingsID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PointTotal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PointTotal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ChoseToBetFlag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChoseToBetFlag)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SurveyID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

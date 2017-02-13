@@ -11,6 +11,7 @@ using DotRacesAdministration.Models;
 
 namespace DotRacesAdministration.Controllers
 {
+    [Authorize]
     public class SettingsController : Controller
     {
         private DotRacesDataContext db = new DotRacesDataContext();
@@ -18,7 +19,11 @@ namespace DotRacesAdministration.Controllers
         // GET: Settings
         public ActionResult Index()
         {
+            ViewData["Races"] = db.Races.ToList();
+            ViewData["Questions"] = db.Questions.ToList();
+            ViewData["Settings"] = db.SettingSets.ToList();
             return View(db.SettingSets.ToList());
+
         }
 
         // GET: Settings/Details/5

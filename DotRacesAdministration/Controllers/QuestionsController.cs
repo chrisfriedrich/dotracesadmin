@@ -11,6 +11,7 @@ using DotRacesAdministration.Models;
 
 namespace DotRacesAdministration.Controllers
 {
+    [Authorize]
     public class QuestionsController : Controller
     {
         private DotRacesDataContext db = new DotRacesDataContext();
@@ -37,8 +38,20 @@ namespace DotRacesAdministration.Controllers
         }
 
         // GET: Questions/Create
-        public ActionResult Create()
+        public ActionResult Create(int? id, int? round)
         {
+            SettingSet settings = db.SettingSets.Find(id);
+
+            if (settings != null)
+            {
+                Question question = new Question();
+                if (round != null)
+                {
+                    question.QuestionRoundNum = round;
+                }
+                question.SettingSetID = settings.SettingSetID;
+                return View(question);
+            }
             return View();
         }
 
@@ -47,13 +60,13 @@ namespace DotRacesAdministration.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "QuestionID,QuestionText,AskedFlag,CurrentQuestionFlag")] Question question)
+        public ActionResult Create([Bind(Include = "QuestionID,SettingSetID,QuestionText,HasFollowUp,FollowUpText,FeelingNoun,LowScaleDescription,HighScaleDescription,AskedFlag,CurrentQuestionFlag,QuestionRoundNum,FinalGroupQuestion,GroupQuestionNumber")] Question question)
         {
             if (ModelState.IsValid)
             {
                 db.Questions.Add(question);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Settings");
             }
 
             return View(question);
@@ -79,13 +92,13 @@ namespace DotRacesAdministration.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "QuestionID,QuestionText,AskedFlag,CurrentQuestionFlag")] Question question)
+        public ActionResult Edit([Bind(Include = "QuestionID,SettingSetID,QuestionText,HasFollowUp,FollowUpText,FeelingNoun,LowScaleDescription,HighScaleDescription,AskedFlag,CurrentQuestionFlag,QuestionRoundNum,FinalGroupQuestion,GroupQuestionNumber")] Question question)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(question).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Settings");
             }
             return View(question);
         }

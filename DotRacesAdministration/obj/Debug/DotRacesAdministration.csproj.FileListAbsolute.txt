@@ -1,3 +1,13 @@
+D:\Documents\Visual Studio 2015\Projects\DotRacesAdministration\DotRacesAdministration\obj\Debug\DotRacesAdministration.Migrations.fixquestions.resources
+D:\Documents\Visual Studio 2015\Projects\DotRacesAdministration\DotRacesAdministration\obj\Debug\DotRacesAdministration.Migrations.question_setting_set.resources
+D:\Documents\Visual Studio 2015\Projects\DotRacesAdministration\DotRacesAdministration\obj\Debug\DotRacesAdministration.Migrations.morequestionparameters.resources
+D:\Documents\Visual Studio 2015\Projects\DotRacesAdministration\DotRacesAdministration\obj\Debug\DotRacesAdministration.Migrations.QuestionUpdate.resources
+D:\Documents\Visual Studio 2015\Projects\DotRacesAdministration\DotRacesAdministration\obj\Debug\DotRacesAdministration.Migrations.nullables.resources
+D:\Documents\Visual Studio 2015\Projects\DotRacesAdministration\DotRacesAdministration\obj\Debug\DotRacesAdministration.Migrations.separators.resources
+D:\Documents\Visual Studio 2015\Projects\DotRacesAdministration\DotRacesAdministration\obj\Debug\DotRacesAdministration.Migrations.namechange.resources
+D:\Documents\Visual Studio 2015\Projects\DotRacesAdministration\DotRacesAdministration\obj\Debug\DotRacesAdministration.Migrations.otherdifference.resources
+D:\Documents\Visual Studio 2015\Projects\DotRacesAdministration\DotRacesAdministration\obj\Debug\DotRacesAdministration.Migrations.surveywins.resources
+D:\Documents\Visual Studio 2015\Projects\DotRacesAdministration\DotRacesAdministration\obj\Debug\DotRacesAdministration.csproj.GenerateResource.Cache
 D:\Documents\Visual Studio 2015\Projects\DotRacesAdministration\DotRacesAdministration\bin\roslyn\csc.exe
 D:\Documents\Visual Studio 2015\Projects\DotRacesAdministration\DotRacesAdministration\bin\roslyn\csc.exe.config
 D:\Documents\Visual Studio 2015\Projects\DotRacesAdministration\DotRacesAdministration\bin\roslyn\csc.rsp
@@ -78,6 +88,7 @@ D:\Documents\Visual Studio 2015\Projects\DotRacesAdministration\DotRacesAdminist
 D:\Documents\Visual Studio 2015\Projects\DotRacesAdministration\DotRacesAdministration\bin\Microsoft.Owin.Security.Google.xml
 D:\Documents\Visual Studio 2015\Projects\DotRacesAdministration\DotRacesAdministration\bin\Microsoft.Owin.Security.Twitter.xml
 D:\Documents\Visual Studio 2015\Projects\DotRacesAdministration\DotRacesAdministration\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-D:\Documents\Visual Studio 2015\Projects\DotRacesAdministration\DotRacesAdministration\obj\Debug\DotRacesAdministration.csprojResolveAssemblyReference.cache
 D:\Documents\Visual Studio 2015\Projects\DotRacesAdministration\DotRacesAdministration\obj\Debug\DotRacesAdministration.dll
 D:\Documents\Visual Studio 2015\Projects\DotRacesAdministration\DotRacesAdministration\obj\Debug\DotRacesAdministration.pdb
+D:\Documents\Visual Studio 2015\Projects\DotRacesAdministration\DotRacesAdministration\obj\Debug\DotRacesAdministration.Migrations.osutables.resources
+D:\Documents\Visual Studio 2015\Projects\DotRacesAdministration\DotRacesAdministration\obj\Debug\DotRacesAdministration.csprojResolveAssemblyReference.cache
